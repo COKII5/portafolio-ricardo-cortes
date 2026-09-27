@@ -77,7 +77,6 @@ type VideoRef = { provider: 'youtube' | 'vimeo'; id: string };
 
 ## 🔄 2. Cambios Recientes (Memoria a Corto Plazo)
 *(Máximo 5 entradas. El agente /pm borrará la más antigua al añadir una nueva).*
-- **[2026-09-26] Iteración 2 ✅:** Modelo `Work` (unión discriminada), 6 trabajos de ejemplo con portadas SVG, y `WorkCard`/`WorkGrid`/`CategoryFilter` en `WorksSection` de la home. El filtro `?categoria=` no mueve el scroll y respeta el historial. QA 13/13.
 - **[2026-09-26] Iteración 3 ✅:** Detalle `/trabajos/:slug` por categoría: `VideoEmbed` (iframe solo tras el click, foco al reproductor), galería + links, caso de automatización, ficha, anterior/siguiente, 404 y `<title>` por página. `gallery` pasó a `{src, alt}[]`. QA 22/22.
 - **[2026-09-26] Iteración 4 ✅:** Home completa: Hero (nombre, perfil y CTAs), Sobre mí con 3 disciplinas que enlazan al filtro, y Contacto (mailto, copiar correo, redes). El contenido personal vive en `features/home/data/profile.ts` (placeholders con `TODO`). QA 13/13.
 - **[2026-09-26] Iteración 5 ✅:** Animaciones:
@@ -89,17 +88,23 @@ type VideoRef = { provider: 'youtube' | 'vimeo'; id: string };
   - **SEO:** meta/canónica por página, `noindex` en 404, JSON-LD, y `sitemap.xml`/`robots.txt` generados en el build desde `works.ts`. La URL del sitio vive solo en `shared/config/site.ts`.
   - **Contenido:** LinkedIn y WhatsApp reales.
   - **Lighthouse:** escritorio 100×4. En móvil, 100 en A11y/BP/SEO y Performance 83-87.
+- **[2026-09-27] Publicado + ajustes visuales ✅:**
+  - **Publicación:** GitHub `COKII5/portafolio-ricardo-cortes` → Vercel https://portafolio-ricardo-cortes.vercel.app, con despliegue automático en cada push.
+  - **Contacto rediseñado:** canales con ícono y formulario nombre/correo/mensaje. El formulario es solo visual: valida pero no envía.
+  - **Fondo:** moléculas fijas en canvas (`shared/ui/MoleculesBackground.tsx`) y neblina en los bordes (token `--fog`).
+  - **Tipografía:** títulos en Space Grotesk, alojada en `public/fonts`.
+  - **Datos reales:** correo cargado.
 
 ## 🎯 3. Foco Actual (Iteración en Curso)
 *(Solo puede haber UNA tarea aquí a la vez. El agente /team-complete trabajará exclusivamente en esto).*
 - [ ] **Contenido real (lo aporta el usuario):**
   - Trabajos (`features/works/data/works.ts`): título, categoría, año, rol/cliente, resumen, link de YouTube/Vimeo o URL, y portada.
-  - En `features/home/data/profile.ts`: tagline, texto "Sobre mí", email, y GitHub/Instagram/Vimeo. LinkedIn y WhatsApp ya están.
-  - Dominio definitivo (`SITE_URL` en `shared/config/site.ts`).
+  - En `features/home/data/profile.ts`: tagline, texto "Sobre mí", y GitHub/Instagram/Vimeo. Correo, LinkedIn y WhatsApp ya están.
 
 ## 📋 4. Tareas Pendientes (Backlog)
 *(Lista de cosas por hacer, ordenadas de mayor a menor prioridad).*
-- [ ] **Publicar:** GitHub → Vercel → Google Search Console, según `docs/deploy_vercel.md`.
+- [ ] **Conectar el formulario de contacto** para que los mensajes lleguen a `ricardocorpardo@gmail.com` (p. ej. Formspree; hay un `TODO` en `ContactForm.tsx`).
+- [ ] **Google Search Console:** verificar el sitio, enviar `sitemap.xml` y pedir la indexación, según `docs/deploy_vercel.md`. Mejor hacerlo con el contenido real ya cargado.
 - [ ] **(Decisión del usuario) Pre-render del HTML en el build:**
   - Subiría la Performance móvil a ≥ 95 y daría una vista previa correcta al compartir cada trabajo.
   - Es un cambio de arquitectura y quizás requiera una dependencia nueva.

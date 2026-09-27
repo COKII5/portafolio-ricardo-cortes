@@ -33,7 +33,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-canvas/80 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link to="/" onClick={closeMenu} className="text-base font-semibold tracking-tight text-fg">
+        <Link to="/" onClick={closeMenu} className="font-display text-base font-semibold tracking-tight text-fg">
           Ricardo Cortes
         </Link>
 

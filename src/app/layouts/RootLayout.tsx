@@ -18,6 +18,8 @@ export function RootLayout() {
   return (
     <div className="isolate flex min-h-dvh flex-col">
       <MoleculesBackground />
+      {/* Después del canvas en el DOM: queda encima de las moléculas pero detrás del contenido */}
+      <div aria-hidden="true" className="screen-fog pointer-events-none fixed inset-0 -z-10" />
       <a
         href="#contenido"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-on-accent"

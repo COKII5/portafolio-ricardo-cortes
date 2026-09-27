@@ -13,6 +13,8 @@
   --on-accent: #ffffff;
   /* Un tono más oscuro que el relleno: mantiene ≥ 4.5:1 también sobre el resplandor y las superficies azuladas */
   --accent-fg: #1d4ed8;
+  /* Neblina de los bordes: el fondo con tinte de acento */
+  --fog: color-mix(in oklab, var(--canvas) 78%, var(--accent));
 }
 
 /* Especificidad (0,2,0) para ganarle a :root sin depender del orden de las reglas */
@@ -24,6 +26,7 @@
   --fg-muted: #a1a1aa;
   --line: #27272a;
   --accent-fg: #60a5fa;
+  --fog: color-mix(in oklab, var(--canvas) 62%, var(--accent));
 }
 
 /* inline: las utilidades leen la variable en tiempo de ejecución y siguen a data-theme sin dark: */
@@ -63,6 +66,13 @@
 @theme {
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Space Grotesk', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer components {
+  /* Neblina fija en los bordes: el color del fondo con un leve tinte de acento, transparente al centro */
+  .screen-fog {
+    background: radial-gradient(ellipse at 50% 45%, transparent 38%, var(--fog) 100%);
+  }
 }
 
 @layer base {

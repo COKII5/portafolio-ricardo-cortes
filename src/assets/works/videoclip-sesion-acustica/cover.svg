@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <pattern id="holes" width="100" height="60" patternUnits="userSpaceOnUse">
+      <rect x="30" y="18" width="40" height="24" rx="6" fill="#3F3F46"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="#18181B"/>
+  <rect width="1600" height="60" fill="url(#holes)"/>
+  <rect y="840" width="1600" height="60" fill="url(#holes)"/>
+  <path d="M400 420v60M440 390v120M480 350v200M520 380v140M560 320v260M600 360v180M640 290v320M680 340v220M720 260v380M760 320v260M800 240v420M840 320v260M880 260v380M920 340v220M960 290v320M1000 360v180M1040 320v260M1080 380v140M1120 350v200M1160 390v120M1200 420v60" stroke="#2563EB" stroke-width="16" stroke-linecap="round" fill="none"/>
+</svg>

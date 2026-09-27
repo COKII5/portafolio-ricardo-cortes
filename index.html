@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ricardo Cortes — Producción audiovisual, web y automatización</title>
+    <meta
+      name="description"
+      content="Portafolio de Ricardo Cortes: producción audiovisual (grabación, transmisiones en vivo y edición), desarrollo de sitios web y automatización de procesos con workflows y scripts."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+
+    <!-- __SITE_URL__ lo reemplaza el build con SITE_URL de src/shared/config/site.ts -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Ricardo Cortes" />
+    <meta property="og:url" content="__SITE_URL__/" />
+    <meta property="og:title" content="Ricardo Cortes — Producción audiovisual, web y automatización" />
+    <meta
+      property="og:description"
+      content="Video, transmisiones en vivo, sitios web y automatizaciones. Mira los proyectos."
+    />
+    <meta property="og:image" content="__SITE_URL__/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ricardo Cortes — Producción audiovisual, web y automatización" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- TODO: sumar a "sameAs" las demás redes cuando tengan su URL real -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "__SITE_URL__/#persona",
+            "name": "Ricardo Cortes",
+            "url": "__SITE_URL__/",
+            "image": "__SITE_URL__/og-image.png",
+            "jobTitle": "Productor audiovisual y desarrollador de automatizaciones",
+            "sameAs": ["https://www.linkedin.com/in/ricardo-cortes-pardo-25b279218"],
+            "knowsAbout": ["Producción audiovisual", "Transmisiones en vivo", "Edición de video", "Desarrollo web", "Automatización de procesos"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "__SITE_URL__/#sitio",
+            "name": "Ricardo Cortes",
+            "url": "__SITE_URL__/",
+            "inLanguage": "es",
+            "author": { "@id": "__SITE_URL__/#persona" }
+          }
+        ]
+      }
+    </script>
+    <script>
+      // Fija el tema antes del primer pintado para evitar el flash. La clave debe coincidir con THEME_STORAGE_KEY.
+      (function () {
+        var stored = null;
+        try {
+          stored = localStorage.getItem('theme');
+        } catch (e) {}
+        var theme =
+          stored === 'light' || stored === 'dark'
+            ? stored
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
